@@ -10,7 +10,6 @@ int main()
   // Step 1: Input array
   cout << "Enter number of elements in array: ";
   cin >> n;
-
   cout << "Enter " << n << " elements (float values):\n";
   for (int i = 0; i < n; i++)
   {
