@@ -28,16 +28,6 @@ void Student::input()
   }
 }
 
-inline void Student::average()
-{
-  int total = 0;
-  for (int i = 0; i < 5; i++)
-  {
-    total = total + marks[i];
-  }
-  avg = total / 5.0;
-}
-
 void Student::output()
 {
   cout << "\nName: " << name;
@@ -48,6 +38,15 @@ void Student::output()
     cout << marks[i] << " ";
   }
   cout << "\nAverage: " << avg << endl;
+}
+inline void Student::average()
+{
+  int total = 0;
+  for (int i = 0; i < 5; i++)
+  {
+    total = total + marks[i];
+  }
+  avg = total / 5.0;
 }
 
 int main()
