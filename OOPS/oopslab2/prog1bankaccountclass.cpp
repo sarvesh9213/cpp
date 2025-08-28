@@ -30,14 +30,14 @@ public:
   // C. For withdrawal (only if balance after withdrawal > 10000)
   void withdraw(double amount)
   {
-    if (balance - amount >= 10000)
+    if (balance - amount >= 1000)
     {
       balance -= amount;
       cout << "Withdrawal successful! Remaining balance = " << balance << endl;
     }
     else
     {
-      cout << "Withdrawal denied! Balance must remain above 10000." << endl;
+      cout << "Withdrawal denied! Balance must remain above 1000." << endl;
     }
   }
 
@@ -58,8 +58,8 @@ int main()
   BankAccount customers[10];
 
   // Example initialization for 2 customers (you can extend for 10)
-  customers[0].initialize("Rahul Sharma", 1001, 's', 25000);
-  customers[1].initialize("Neha Verma", 1002, 'c', 50000);
+  customers[0].initialize("sarvesh pandey", 1001, 's', 50000);
+  customers[1].initialize("saurav kumar", 1002, 'c', 25000);
 
   // Sample operations
   customers[0].deposit(5000);
