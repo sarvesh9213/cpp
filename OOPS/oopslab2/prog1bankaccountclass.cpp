@@ -67,7 +67,7 @@ int main()
   BankAccount customers[10]; // For 10 customers
 
   // Example: Initialize first customer
-  customers[0].initialize("John Doe", 1001, 's', 15000);
+  customers[0].initialize("sarvesh pandey", 1001, 's', 15000);
 
   // Show details, then deposit, withdraw
   customers[0].display();
