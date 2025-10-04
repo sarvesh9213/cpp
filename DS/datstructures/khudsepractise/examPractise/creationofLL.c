@@ -42,7 +42,8 @@ int main()
     if (head == NULL)
     {
       // If this is the first node
-      head = temp = newNode;
+      head = newNode;
+      temp = newNode;
     }
     else
     {
