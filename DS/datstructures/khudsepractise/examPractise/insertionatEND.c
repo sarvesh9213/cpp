@@ -1,82 +1,79 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Structure definition
+// Node structure
 struct Node
 {
   int data;
   struct Node *next;
 };
 
-// Function to insert node at the end
-void insertAtEnd(struct Node **head, int value)
+int main()
 {
-  // Step 1: Allocate memory
-  struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-  if (newNode == NULL)
+  struct Node *head = NULL, *temp = NULL, *newNode = NULL;
+  int choice = 1, count = 0;
+
+  // Create initial linked list
+  while (choice)
   {
-    printf("Memory not allocated!\n");
-    return;
+    // Make a new node
+    newNode = (struct Node *)malloc(sizeof(struct Node));
+    printf("Enter data: ");
+    scanf("%d", &newNode->data);
+    newNode->next = NULL;
+
+    if (head == NULL)
+    {
+      // First node
+      head = newNode;
+      temp = newNode;
+    }
+    else
+    {
+      // Add at end
+      temp->next = newNode;
+      temp = newNode;
+    }
+
+    count++;
+    printf("Do you want to continue? (1 = Yes, 0 = No): ");
+    scanf("%d", &choice);
   }
 
-  newNode->data = value;
-  newNode->next = NULL;
-
-  // Step 2: If list is empty
-  if (*head == NULL)
-  {
-    *head = newNode;
-    return;
-  }
-
-  // Step 3: Traverse to the last node
-  struct Node *temp = *head;
-  while (temp->next != NULL)
-  {
-    temp = temp->next;
-  }
-
-  // Step 4: Attach new node at the end
-  temp->next = newNode;
-}
-
-// Function to traverse and print
-void traverse(struct Node *head)
-{
-  struct Node *temp = head;
-  printf("\nLinked List elements: ");
+  // Print list before insertion
+  printf("\nLinked List: ");
+  temp = head;
   while (temp != NULL)
   {
     printf("%d ", temp->data);
     temp = temp->next;
   }
-  printf("\n");
-}
+  printf("\nNumber of nodes = %d\n", count);
 
-int main()
-{
-  struct Node *head = NULL;
-  int choice = 1, val;
+  // Now insert at end
+  newNode = (struct Node *)malloc(sizeof(struct Node));
+  printf("\nEnter data to insert at the end: ");
+  scanf("%d", &newNode->data);
+  newNode->next = NULL;
 
-  // Create initial linked list
-  while (choice)
+  // Traverse to last node
+  temp = head;
+  while (temp->next != NULL)
   {
-    printf("Enter data: ");
-    scanf("%d", &val);
-    insertAtEnd(&head, val);
-
-    printf("Do you want to continue? (1 = Yes, 0 = No): ");
-    scanf("%d", &choice);
+    temp = temp->next;
   }
+  temp->next = newNode; // attach at end
+  count++;
 
-  traverse(head);
-
-  // Insert at end after creation
-  printf("\nEnter value to insert at the end: ");
-  scanf("%d", &val);
-  insertAtEnd(&head, val);
-
-  traverse(head);
+  // Print list after insertion
+  printf("\nLinked List after insertion: ");
+  temp = head;
+  while (temp != NULL)
+  {
+    printf("%d ", temp->data);
+    temp = temp->next;
+  }
+  printf("\nNumber of nodes = %d\n", count);
 
   return 0;
 }
