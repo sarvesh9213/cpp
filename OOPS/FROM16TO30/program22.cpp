@@ -2,43 +2,50 @@
 #include <cmath>
 using namespace std;
 
-class Point {
+class Point
+{
 protected:
-    float x, y;
+  float x, y;
 
 public:
-    void read() {
-        cout << "Enter x and y coordinates: ";
-        cin >> x >> y;
-    }
+  void read()
+  {
+    cout << "Enter x and y coordinates: ";
+    cin >> x >> y;
+  }
 
-    void display() {
-        cout << "Point = (" << x << ", " << y << ")" << endl;
-    }
+  void display()
+  {
+    cout << "Point = (" << x << ", " << y << ")" << endl;
+  }
 };
 
-class Distance : public Point {
-    float dist;
+class Distance : public Point
+{
+  float dist;
 
 public:
-    void findDistance() {
-        dist = sqrt(x*x + y*y);
-    }
+  void findDistance()
+  {
+    dist = sqrt(x * x + y * y);
+  }
 
-    void showDistance() {
-        cout << "Distance from origin = " << dist << endl;
-    }
+  void showDistance()
+  {
+    cout << "Distance from origin = " << dist << endl;
+  }
 };
 
-int main() {
-    Distance d;
+int main()
+{
+  Distance d;
 
-    d.read();
-    d.display();
-    d.findDistance();
-    d.showDistance();
+  d.read();
+  d.display();
+  d.findDistance();
+  d.showDistance();
 
-    cout << "\n-- Program by Sarvesh Pandey --\n";
-    cout << "-- BRANCH: IT EVE SEM 3 --";
-    return 0;
+  cout << "\n-- Program by Sarvesh Pandey --\n";
+  cout << "-- BRANCH: IT EVE SEM 3 --";
+  return 0;
 }
